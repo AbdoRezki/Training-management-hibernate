@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 1 d?c. 2021 01:05:14 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="model.Formation" table="Formation">
+        <id name="id" type="int" column="id" length="15"/>
+        <property name="theme" column="theme" type="java.lang.String" not-null="false" length="30"/>
+        <many-to-one name="lieu" column="idLieu" class="model.Lieu" />
+		<set name="listFormateur" table="FormateurFormateur" cascade="all">
+			<key column="id"/>
+			<many-to-many class="model.Formateur" column="cin"/>
+		</set>
+    </class>
+</hibernate-mapping>

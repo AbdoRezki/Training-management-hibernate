@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping>
+		<class name="model.Formateur" table="Formateur">
+		<id name="cin" column="cin"/>
+		<property name="nom"  column="nom"/>
+		<property name="age"  column="age"/>
+		<set name="listFormation" table="FormateurFormateur" cascade="all">
+			<key column="cin"/>
+			<many-to-many class="model.Formation" column="id"/>
+		</set>
+		</class>
+	</hibernate-mapping>
